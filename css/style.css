@@ -12,15 +12,16 @@ body {
 
 .mainTitle h1 {
     font-family: "Silkscreen", sans-serif;
-    padding-top: 142px;
+    padding-top: 100px;
     text-shadow: -2px 1px 7px #ff045a;
     color: #ffedeb;
     font-size: 68px;
     text-align: center;
 }
 
+
 .inputContain {
-    padding-top: 37px;
+    padding-top: 43px;
 }
 
 * {
@@ -64,14 +65,14 @@ ul li.checked {
 }
 
 .close:hover {
-    background-color: #ffbc6b;
+    background-color: #ff5898;
     color: white;
 }
 
 /* Style the header */
 .header {
-    background-color: #d7fe89;
-    padding: 30px 40px;
+    background-color: #c839f754;
+    padding: 20px 20px;
     color: white;
     text-align: center;
 }
