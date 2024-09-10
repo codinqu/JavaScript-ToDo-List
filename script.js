@@ -1,62 +1,32 @@
 
-// Create a "close" button and append it to each list item
-let myNodelist = document.getElementsByTagName("LI");
-for (let i = 0; i < myNodelist.length; i++) {
-    let span = document.createElement("SPAN");
-    let txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-}
+function addTask() {
+    
+    // creating variables for my ID's that will be used 
+    let taskInput = document.getElementById('newTask');
 
+    let taskList = document.getElementById('taskList');
 
-
-
-// Click on a close button to hide the current list item
-let close = document.getElementsByClassName("close");
-for (let i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-        let div = this.parentElement;
-        div.style.display = "none";
+    if (taskInput.value === '') {
+        alert('Please input a task!');
+        return;
     }
-}
 
+    let newTask = document.createElement('li');
+    newTask.textContent = taskInput.value;
+        // using .textContent as a way to access or manipulate the text within the html 
 
+        // adding a delete button to each task
+    let deleteBtn = document.createElement('button');
+        // .createElement is creating a new button element 
+    deleteBtn.textContent = 'Delete Task';
+    deleteBtn.onclick = function() {
+        taskList.removeChild(newTask);
+    };  // .removeChild is removing the specified child element from it's parent
+    
+    newTask.appendChild(deleteBtn);
+    taskList.appendChild(newTask);
+        // .appendChild is adding a new child element to an already created element in the DOM
 
-
-// Add a "checked" symbol when clicking on a list item
-let list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-    if (ev.target.tagName === 'LI') {
-        ev.target.classList.toggle('checked');
-    }
-}, false);
-
-
-
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-    let li = document.createElement("li");
-    let inputValue = document.getElementById("myInput").value;
-    let t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if (inputValue === '') {
-        alert("You must write something!");
-    } else {
-        document.getElementById("myUL").appendChild(li);
-    }
-    document.getElementById("myInput").value = "";
-
-    let span = document.createElement("SPAN");
-    let txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
-            let div = this.parentElement;
-            div.style.display = "none";
-        }
-    }
+    taskInput.value = '';
+        // clearing the input field/value
 }

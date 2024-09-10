@@ -23,17 +23,15 @@
     <div class="container inputContain">
         <div class="row">
             <div id="myDiv" class="header">
-                <input type="text" id="myInput" placeholder="Insert Task">
-                <span onclick="newElement()" class="addBtn">Add Task</span>
+                <input type="text" id="newTask" placeholder="Insert Task">
+                <button id="inputBtn" onclick="addTask()">Add Task</button>
             </div>
         </div>
     </div>
     <div class="container listContain">
         <div class="row">
             <div class="listItems">
-                <ul  id="myUL">
-
-                </ul>
+                <ul  id="taskList"></ul>
             </div>
         </div>
     </div>
